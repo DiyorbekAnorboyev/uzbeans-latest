@@ -1,29 +1,26 @@
 'use client'
 import Image from 'next/image'
-import backgroundImg from '../../public/mosh.jpg'
 import LogoNav from '../../public/logoWhite.png'
 import LogoNav1 from '../../public/logoLast.png'
 import traktorImg from '../../public/traktor.jpg'
-import beansImg from '../../public/new-beans.png'
+import beansImg from '../../public/new-beans.jpg'
 import downloadIcon from '../../public/downloadIcon.png'
 import noxot from '../../public/noxot.jpg'
 import yangoq from '../../public/yangoq.jpg'
 import mosh1 from '../../public/mosh1.jpg'
 import lovia from '../../public/lovia.png'
 import * as React from 'react'
-import { DropdownMenuCheckboxItemProps } from '@radix-ui/react-dropdown-menu'
 import 'leaflet/dist/leaflet.css'
 import '../globals.css'
-// import Carousel from 'react-bootstrap/Carousel';
 
-import caMosh from '../../public/mosh.png'
-import caLovia from '../../public/slaydLovia.png'
-import caYongoq from '../../public/slaydYongoq.png'
-import caNoxot from '../../public/slaydNoxot.png'
-// import { cn } from "shadcn/ui";
+import caMosh from '../../public/mosh.jpg'
+import caLovia from '../../public/slaydLovia.jpg'
+import caYongoq from '../../public/slaydYongoq.jpg'
+import caNoxot from '../../public/slaydNoxot.jpg'
+import messageIcon from '../../public/messegeIcon.png'
+import callIcon from '../../public/call icon.png'
 import { useState } from 'react'
 
-import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -31,31 +28,22 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
 import { IoMenu } from 'react-icons/io5'
-import { InstagramIcon, Map, MessageCircle, YoutubeIcon } from 'lucide-react'
+import { InstagramIcon, MessageCircle, YoutubeIcon } from 'lucide-react'
 import { CiLocationOn } from 'react-icons/ci'
 import { LiaTelegramPlane } from 'react-icons/lia'
 
-import { BsTelephone } from 'react-icons/bs'
 import { GoMoveToTop } from 'react-icons/go'
-import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
-// import i18n from '../lib/i18n'
 import Link from 'next/link'
-import 'aos/dist/aos.css' // Import AOS CSS globally
+import 'aos/dist/aos.css'
 
 import AOS from 'aos'
 import { useTranslation } from 'react-i18next'
 import { usePathname, useRouter } from 'next/navigation'
-import { FaPhone } from 'react-icons/fa'
 import { AiOutlinePhone } from 'react-icons/ai'
 
-type Checked = DropdownMenuCheckboxItemProps['checked']
-
 export default function Home () {
-  const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true)
-  const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false)
-  const [showPanel, setShowPanel] = React.useState<Checked>(false)
-  const center: number[] = [41.3140616, 69.2952844]
   const [isOpen, setIsOpen] = React.useState(false)
   const [isOpenMenu, setIsOpenMenu] = React.useState(false)
 
@@ -85,20 +73,12 @@ export default function Home () {
 
   const [displaySize, setDisplaySize] = React.useState(0)
 
-  // Update displaySize when the window is resized
   React.useEffect(() => {
-    // Function to handle window resizing
     const handleResize = () => {
       setDisplaySize(window.innerWidth)
     }
-
-    // Add event listener when component mounts
     window.addEventListener('resize', handleResize)
-
-    // Call the handler initially to set the size
     handleResize()
-
-    // Clean up the event listener when component unmounts
     return () => {
       window.removeEventListener('resize', handleResize)
     }
@@ -126,7 +106,7 @@ export default function Home () {
   }, [])
 
   React.useEffect(() => {
-    AOS.init({ duration: 1000 }) // Initialize AOS (duration can be customized)
+    AOS.init({ duration: 1000 })
   }, [])
   const { t } = useTranslation()
 
@@ -153,48 +133,58 @@ export default function Home () {
         <div className='relative w-full h-[100vh] overflow-hidden'>
           {/* Carousel Background */}
           <Carousel
+            // autoPlay={false}
             autoPlay
             infiniteLoop
             showThumbs={false}
             showStatus={false}
             className='absolute top-0 left-0 w-full h-full'
           >
-            <div className='w-full h-[100vh]'>
+            <div className='w-full relative h-[100vh]'>
               <Image
+                loading='lazy'
                 src={caMosh}
                 alt='Mosh'
                 className='w-full h-full object-cover'
               />
+              <p className="absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-11 z-10">{t('txt_nohot')}</p>
             </div>
-            <div className='w-full h-[100vh]'>
+            <div className='w-full relative h-[100vh]'>
               <Image
+                loading='lazy'
                 src={caYongoq}
                 alt='Yongoq'
                 className='w-full h-full object-cover'
               />
+              <p className="absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-11 z-10">{t('txt_yongoq')}</p>
             </div>
-            <div className='w-full h-[100vh]'>
+            <div className='w-full relative h-[100vh]'>
               <Image
+                loading='lazy'
                 src={caLovia}
                 alt='Lovia'
                 className='w-full h-full object-cover'
               />
+              <p className="absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-11 z-10"> {t('txt_lovia')}</p>
             </div>
             <div className='w-full h-[100vh]'>
               <Image
+                loading='lazy'
                 src={caNoxot}
                 alt='Noxot'
                 className='w-full h-full object-cover'
               />
+              <p className="absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-11 z-10">{t('txt_yong')} </p>
             </div>
           </Carousel>
 
           {/* Foreground Content */}
           <div className='relative flex flex-col justify-between h-screen pb-10 z-10'>
             {/* Navigation */}
-            <div className='flex w-full items-center pt-8 justify-between px-6 sm:px-12 lg:px-24 text-white'>
+            <div className='flex w-full items-center mt-14 justify-between px-6 sm:px-24  text-white'>
               <div className='flex-shrink-0'>
                 <Image
+                  loading='lazy'
                   onClick={() => toTop()}
                   className='w-auto h-8 sm:h-12 hover:cursor-pointer'
                   src={LogoNav}
@@ -202,19 +192,35 @@ export default function Home () {
                 />
               </div>
               <div className='hidden w-full sm:ml-10 sm:flex space-x-4 text-xl md:flex justify-between items-center px-10'>
-                <div className='hover:cursor-pointer'>{t('main')}</div>
-                <div className='hover:cursor-pointer'>{t('about')}</div>
-                <div className='hover:cursor-pointer'>
+                <div className='f-medium-27 hover:cursor-pointer'>
+                  {t('main')}
+                </div>
+                <div className='f-medium-27 hover:cursor-pointer'>
+                  {t('about')}
+                </div>
+                <div className='f-medium-27 hover:cursor-pointer'>
                   <Link className=' hover:cursor-pointer' href='/products'>
                     {t('catalog')}
                   </Link>
                 </div>
-                <div className='flex gap-1 text-lg items-center hover:cursor-pointer'>
-                  <BsTelephone size={19} className='hover:cursor-pointer' />{' '}
+                <div className='flex gap-1 f-medium-24 text-xl items-center hover:cursor-pointer'>
+                  <Image
+                    loading='lazy'
+                    height={20}
+                    src={callIcon}
+                    alt='callIcon'
+                  />
+                  {/* <BsTelephone size={19} className='hover:cursor-pointer' />{' '} */}
                   +998(95)-089-99-44{' '}
                 </div>
-                <div className='flex gap-1 text-lg items-center hover:cursor-pointer'>
-                  <MessageCircle size={19} className='hover:cursor-pointer' />
+                <div className='flex gap-1 f-medium-24 text-xl items-center hover:cursor-pointer'>
+                  <Image
+                    loading='lazy'
+                    height={20}
+                    src={messageIcon}
+                    alt='message'
+                  />
+                  {/* <MessageCircle size={19} className='hover:cursor-pointer' /> */}
                   albois200@mail.ru{' '}
                 </div>
               </div>
@@ -223,7 +229,7 @@ export default function Home () {
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <button
-                      className='w-16 max-sm:text-sm'
+                      className='w-16 sm:text-base'
                       onClick={() => setIsOpen(!isOpen)}
                     >
                       RU / EN
@@ -298,28 +304,29 @@ export default function Home () {
             </div>
 
             {/* Main Content */}
-            <div className='flex flex-col text-white md:flex-row justify-between items-center px-6 sm:px-10 md:px-20 mt-12'>
-              <div className='text-center md:text-left'>
-                <p className='text-2xl sm:text-4xl font-bold'>
-                  {t('main_bob')}
+            <div className='flex flex-col text-white md:flex-row justify-between items-center px-6 sm:px-24 mt-12'>
+              <div className='text-center md:text-left mb-3'>
+                <p className='text-2xl f-medium-24 sm:text-5xl '>
+                  {/* {t('main_bob')} */}&nbsp;
                 </p>
-                <span className='font-semibold text-sm sm:text-base'>
+                <span className='font-semibold text-sm sm:text-2xl'>
                   {t('about_mi')}
                 </span>
               </div>
-              <div className='mt-6 md:mt-0 flex items-center rounded bg-opacity-10'>
+              <div className='mt-6 md:mt-0 flex items-center rounded bg-opacity-10 mb-3'>
                 <div
                   onClick={openPdf}
-                  className='flex items-center sm:w-96 sm:-mx-60 gap-4 px-2 py-2 rounded-full bg-white bg-opacity-40 sm:rounded-l-full'
+                  className='flex items-center w-auto sm:w-96 sm:-mx-60 gap-4 px-2 py-2 rounded-full bg-white bg-opacity-40 sm:rounded-l-full'
                 >
                   <div className='rounded-full bg-green-800 bg-opacity-90 p-4'>
                     <Image
+                      loading='lazy'
                       src={downloadIcon}
-                      className='h-5 w-5'
+                      className='h-22 w-5'
                       alt='download'
                     />
                   </div>
-                  <div className='text-sm sm:text-2xl font-semibold'>
+                  <div className='text-base sm:text-2xl font-semibold'>
                     {t('download_catalog')}
                   </div>
                 </div>
@@ -329,14 +336,14 @@ export default function Home () {
         </div>
       </div>
       {/* About */}
-      <div className='flex flex-col px-6 sm:px-10 md:px-16 about-bg'>
+      <div className='flex flex-col px-6 sm:px-10 md:px-20 about-bg'>
         {/* Title Section */}
-        <div className='text-center text-3xl sm:text-4xl md:text-6xl mt-10 md:mt-20 w-full'>
+        <div className='text-center text-3xl sm:text-4xl md:text-7xl mt-10 md:mt-20 w-full'>
           <span>{t('title')}</span>
         </div>
 
         {/* Content Section */}
-        <div className='flex flex-col md:flex-row mt-10 md:mt-20 gap-10 md:gap-20 pb-10'>
+        <div className='flex flex-col md:flex-row mt-10 md:mt-28 gap-10 md:gap-24 pb-10'>
           {/* Left Column */}
           <div className='w-full sm:relative'>
             <p className='text-2xl sm:text-4xl md:text-5xl'>{t('about_cm')}</p>
@@ -355,8 +362,9 @@ export default function Home () {
             </div>
             <div className='w-full sm:mt-10'>
               <Image
+                loading='lazy'
                 data-aos='fade-down'
-                className='w-full sm:absolute sm:-bottom-24 bg-cover h-1/2 h-25rem'
+                className='w-full sm:absolute sm:-bottom-24 bg-cover h-1/2 h-25rem z-10'
                 src={traktorImg}
                 alt='Tractor'
               />
@@ -367,6 +375,7 @@ export default function Home () {
           <div className='w-full'>
             <div>
               <Image
+                loading='lazy'
                 data-aos='flip-up'
                 className='w-full'
                 src={beansImg}
@@ -386,30 +395,31 @@ export default function Home () {
       </div>
 
       {/* Products */}
-      <div className='bg_products'>
+      <div className='bg_products relative'>
         <div className='relative min-h-screen'>
           {/* Title */}
           <div className='pt-40'>
             <p
               // data-aos='zoom-in'
-              className='text-2xl sm:text-3xl md:text-4xl text-center w-full bg-green-900 text-white p-2'
+              className='text-2xl sm:text-3xl md:text-5xl font-semibold sm:py-3 text-center w-full bg-green-900 text-white p-2'
             >
               {t('txt_products')}{' '}
             </p>
           </div>
 
           {/* Product Grid */}
-          <div className='mt-32 sm:mt-14 px-6 sm:px-10 md:px-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 w-full'>
+          <div className='mt-32 sm:mt-14 px-6 sm:px-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 w-full'>
             {/* Card 1: Takes 2 columns on larger screens */}
             <div className='lg:col-span-3 bg-slate-400 relative shadow-lg overflow-hidden h-56 sm:h-64'>
               <Image
+                loading='lazy'
                 data-aos='fade-right'
                 className='w-full h-full object-cover'
                 src={mosh1}
                 alt='beans'
               />
               <div className='absolute bottom-0 left-0 w-full h-52 bg-gradient-to-t from-green-900 via-transparent to-transparent flex items-end justify-start'>
-                <p className='text-white text-lg font-bold px-4 py-2'>
+                <p className='text-white text-2xl font-medium px-6 py-5'>
                   {t('txt_nohot')}
                 </p>
               </div>
@@ -418,13 +428,14 @@ export default function Home () {
             {/* Card 2 */}
             <div className='bg-slate-600 lg:col-span-2 relative shadow-lg overflow-hidden h-56 sm:h-64'>
               <Image
+                loading='lazy'
                 data-aos='fade-left'
                 className='w-full h-full object-cover'
                 src={lovia}
                 alt='beans'
               />
               <div className='absolute bottom-0 left-0 w-full h-52 bg-gradient-to-t from-green-900 via-transparent to-transparent flex items-end justify-start'>
-                <p className='text-white text-lg font-bold px-4 py-2'>
+                <p className='text-white text-2xl font-medium px-6 py-5'>
                   {t('txt_lovia')}
                 </p>
               </div>
@@ -433,12 +444,13 @@ export default function Home () {
             {/* Card 3 */}
             <div className='lg:col-span-2 bg-slate-400  relative shadow-lg overflow-hidden h-56 sm:h-64'>
               <Image
+                loading='lazy'
                 className='w-full h-full object-cover'
                 src={yangoq}
                 alt='beans'
               />
               <div className='absolute bottom-0 left-0 w-full h-52 bg-gradient-to-t from-green-900 via-transparent to-transparent flex items-end justify-start'>
-                <p className='text-white text-lg font-bold px-4 py-2'>
+                <p className='text-white text-2xl font-medium px-6 py-5'>
                   {t('txt_yongoq')}
                 </p>
               </div>
@@ -447,12 +459,13 @@ export default function Home () {
             {/* Card 4: Takes 2 columns on larger screens */}
             <div className='lg:col-span-3 bg-slate-600 relative shadow-lg overflow-hidden h-56 sm:h-64'>
               <Image
+                loading='lazy'
                 className='w-full h-full object-cover'
                 src={noxot}
                 alt='beans'
               />
               <div className='absolute bottom-0 left-0 w-full h-52 bg-gradient-to-t from-green-900 via-transparent to-transparent flex items-end justify-start'>
-                <p className='text-white text-lg font-bold px-4 py-2'>
+                <p className='text-white text-2xl font-medium px-6 py-5'>
                   {t('txt_yong')}
                 </p>
               </div>
@@ -463,93 +476,111 @@ export default function Home () {
         {/* Button Section */}
         <div className=' h-40 w-full flex justify-center items-center'>
           <Link
-            className='bg-green-600 hover:cursor-pointer rounded-full text-lg sm:text-lg md:text-1xl p-3 px-5'
+            className='bg-green-600 hover:cursor-pointer sm:px-10 rounded-full text-lg font-medium sm:text-3xl md:text-1xl p-3 px-5'
             href='/products'
           >
             {t('products')}
           </Link>
+        </div>
+
+        {/* map */}
+        <div className=' h-1/2 absolute w-full -bottom-1/4'>
+          {' '}
+          <div>
+            <p className='mt-10 sm:mt-0 text-3xl md:px-24 md:text-5xl text-green-900 font-semibold text-center md:text-left'>
+              {t('location')}{' '}
+            </p>
+          </div>
+          <div className='w-full'>
+            <div className='mt-10 '>
+              <div>
+                <iframe
+                  src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.599218274142!2d71.23881005105166!3d40.99895597907338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bca24dcda79d3b%3A0x1cb1032f9601216!2z0KHRgtGA0LDRgNC40LnQstC10YHRgtCy0L7QvNC40YbQsCDQnNCw0LnRgdC60LDRjywg0JzQsNC50YHQutCw0Y8gMjEg0JAsINCc0LDRgdC60LDRjywg0KLQtdC70YzQvdC40LrQsA!5e0!3m2!1sru!2s!4v1691752214000!5m2!1sru!2s'
+                  width='100%'
+                  height='500'
+                  style={{ border: 'none' }}
+                  allowFullScreen={true}
+                  loading='lazy'
+                ></iframe>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Navigation Map */}
       <div>
         <div className='h-screen'>
-          <div className=' h-1/2 bg-white'>  {/* //px-6 md:px-20 */}
-            <div>
-              <p className=' text-3xl md:text-4xl text-green-900 font-bold text-center md:text-left'>
-                {t('location')}{' '}
-              </p>
-            </div>
-            <div className='w-full'>
-              <div className='mt-10 bg-white'>
-                {/* map */}
-                <div>
-                  <iframe
-                    src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.599218274142!2d71.23881005105166!3d40.99895597907338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bca24dcda79d3b%3A0x1cb1032f9601216!2z0KHRgtGA0LDRgNC40LnQstC10YHRgtCy0L7QvNC40YbQsCDQnNCw0LnRgdC60LDRjywg0JzQsNC50YHQutCw0Y8gMjEg0JAsINCc0LDRgdC60LDRjywg0KLQtdC70YzQvdC40LrQsA!5e0!3m2!1sru!2s!4v1691752214000!5m2!1sru!2s'
-                    width='100%'
-                    height='500'
-                    style={{ border: 'none' }}
-                    allowFullScreen={true}
-                    loading='lazy'
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div className='bg-green-50-50 '>
             <div className='h-1/2 w-full '></div>
 
             <div className='w-full px-6 md:px-20 py-4 sm:py-0 sm:pt-10 bg-black/50 contact-card'>
-              <h3 className='font-bold text-2xl md:text-3xl'>
+              <h3 className='font-bold text-2xl md:text-5xl'>
                 {t('txt_contacts')}
               </h3>
               <div className='text-lg md:text-xl'>
-                <div className='flex flex-col md:flex-row sm:mt-5 justify-between items-center'>
-                  <p className='flex gap-3 text-sm md:text-base'>
+                <div className='flex flex-col md:flex-row sm:mt-5 justify-between sm:items-end'>
+                  <p className='flex w-full justify-start gap-3 text-base md:text-xl'>
                     +998(95)-089-99-44{' '}
-                    <CiLocationOn size={24} className='hover:cursor-pointer' />{' '}
-                    <BsTelephone size={22} className='hover:cursor-pointer' />
+                    <Image
+                      loading='lazy'
+                      height={25}
+                      src={callIcon}
+                      alt='message'
+                    />
+                    {/* <CiLocationOn
+                      size={27}
+                      className='hover:cursor-pointer'
+                    />{' '} */}
                   </p>
-                  <p className='flex gap-3 mt-3 md:mt-0 text-sm md:text-base'>
-                    <CiLocationOn size={24} className='hover:cursor-pointer' />{' '}
+                  <p className=' flex w-full gap-0 mt-3 md:mt-0 sm:justify-end text-base md:text-xl'>
                     {t('loc_main')} <br />
+                    <CiLocationOn
+                      size={27}
+                      className='hover:cursor-pointer'
+                    />{' '}
                   </p>
                 </div>
 
-                <div className='flex flex-col md:flex-row justify-between items-center'>
-                  <p className='flex gap-3 text-sm md:text-base'>
+                <div className='flex flex-col md:flex-row justify-start sm:justify-between items-center'>
+                  <p className='flex w-full gap-3 text-base md:text-xl'>
                     albois2000@mail.ru{' '}
-                    <MessageCircle size={22} className='hover:cursor-pointer' />
+                    <Image
+                      loading='lazy'
+                      height={25}
+                      src={messageIcon}
+                      alt='message'
+                    />
                   </p>
-                  <p className='text-sm md:text-base'>
+                  <p className='text-base w-full md:text-xl sm:text-end'>
                     {t('loc_second')} <br />
                   </p>
                 </div>
               </div>
-              <h4 className='font-bold mt-5 text-2xl md:text-3xl'>
+              <h4 className='font-bold mt-5 text-2xl md:text-5xl'>
                 {t('txt_sotvi')}
               </h4>
-              <div className='flex justify-center md:justify-start py-2 sm:py-5 gap-4 items-center'>
-                <InstagramIcon size={26} className='hover:cursor-pointer' />{' '}
-                <LiaTelegramPlane size={26} className='hover:cursor-pointer' />{' '}
-                <MessageCircle className='hover:cursor-pointer' size={26} />{' '}
-                <YoutubeIcon className='hover:cursor-pointer' size={26} />
+              <div className='flex justify-center md:justify-start py-2 sm:py-5 gap-6 items-center'>
+                <InstagramIcon size={31} className='hover:cursor-pointer' />{' '}
+                <LiaTelegramPlane size={31} className='hover:cursor-pointer' />{' '}
+                <MessageCircle size={31} className='hover:cursor-pointer' />
+                <YoutubeIcon className='hover:cursor-pointer' size={31} />
                 <p className='text-xl md:text-3xl'>uzbeans</p>
               </div>
             </div>
 
-            <div className='flex justify-between items-center px-8 md:px-20 bg-white py-4'>
-              <div className='w-full md:w-40'>
+            <div className='flex justify-between items-center px-8 sm:py-10 md:px-20 bg-white py-4'>
+              <div className='w-full sm:w-auto '>
                 <Image
+                  loading='lazy'
                   onClick={() => toTop()}
-                  className='h-7 hover:cursor-pointer w-auto md:h-10'
+                  className='h-7 hover:cursor-pointer sm:w-auto md:h-12'
                   src={LogoNav1}
                   alt='logo'
                 />
               </div>
-              <div className='text-sm md:text-base text-green-700 text-center md:text-left'>
-                {t('txt_footer')}
+              <div className='text-sm sm:w-auto md:text-lg text-green-700 text-right md:text-right'>
+                {t('txt_footer')}.
               </div>
             </div>
           </div>
