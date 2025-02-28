@@ -13,12 +13,14 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
-import { BsTelephone } from 'react-icons/bs'
-import { MessageCircle } from 'lucide-react'
+// import { BsTelephone } from 'react-icons/bs'
+// import { MessageCircle } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { IoMenu } from 'react-icons/io5'
-import { AiOutlinePhone } from 'react-icons/ai'
+// import { AiOutlinePhone } from 'react-icons/ai'
 import { usePathname, useRouter } from 'next/navigation'
+import messageIcon from '../../../public/messegeIcon.png'
+import callIcon from '../../../public/call icon.png'
 
 const FirstProductPage = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -55,7 +57,7 @@ const FirstProductPage = () => {
   const { t } = useTranslation()
 
   return (
-    <div className='flex w-full items-center py-7 justify-between px-6 sm:px-12 lg:px-24 bg-green-600 text-white'>
+    <div className='flex fixed z-10 w-full items-center py-7 justify-between px-6 sm:px-12 lg:px-24 bg-green-600 text-white'>
       <div className='flex-shrink-0'>
         <Link className=' hover:cursor-pointer' href='/'>
           <Image
@@ -75,11 +77,23 @@ const FirstProductPage = () => {
           </Link>
         </div>
         <div className='flex gap-1 text-lg items-center hover:cursor-pointer'>
-          <BsTelephone size={19} className='hover:cursor-pointer' />{' '}
+          {/* <BsTelephone size={19} className='hover:cursor-pointer' />{' '} */}
+          <Image
+                    loading='lazy'
+                    height={20}
+                    src={callIcon}
+                    alt='callIcon'
+                  />
           +998(95)-089-99-44{' '}
         </div>
         <div className='flex gap-1 text-lg items-center hover:cursor-pointer'>
-          <MessageCircle size={19} className='hover:cursor-pointer' />
+          {/* <MessageCircle size={19} className='hover:cursor-pointer' /> */}
+          <Image
+                    loading='lazy'
+                    height={20}
+                    src={messageIcon}
+                    alt='message'
+                  />
           albois200@mail.ru{' '}
         </div>
       </div>
@@ -95,7 +109,7 @@ const FirstProductPage = () => {
             </button>
           </DropdownMenuTrigger>
           {isOpen && ( // Show dropdown content if menu is open
-            <DropdownMenuContent className='w-auto bg-green-500'>
+            <DropdownMenuContent className='w-auto absolute z-20 bg-green-500'>
               <div className='flex flex-col space-y-4 text-xl'>
                 <DropdownMenuCheckboxItem
                   onClick={() => handleLanguageChange('ru')}
@@ -139,14 +153,21 @@ const FirstProductPage = () => {
                   </div>
                   <div className='flex gap-1 w-full px-2 items-center hover:cursor-pointer'>
                     +998(95)-089-99-44{' '}
-                    <AiOutlinePhone
-                      size={18}
-                      className='hover:cursor-pointer'
-                    />{' '}
+                    <Image
+                    loading='lazy'
+                    height={20}
+                    src={callIcon}
+                    alt='callIcon'
+                  />
                   </div>
                   <div className='flex gap-1 items-center sm:hidden px-4 py-2 hover:cursor-pointer'>
                     albois200@mail.ru{' '}
-                    <MessageCircle size={22} className='hover:cursor-pointer' />
+                    <Image
+                    loading='lazy'
+                    height={20}
+                    src={messageIcon}
+                    alt='message'
+                  />
                   </div>
                 </div>
               </DropdownMenuContent>

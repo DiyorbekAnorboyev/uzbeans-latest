@@ -35,5 +35,6 @@
   "moisture": "Влажность",
   "package": "Упаковка",
   "admixtures": "Примеси",
-  "imperfect": "Несовершенства"
+  "imperfect": "Несовершенства",
+  "color":"Цвет"
 }

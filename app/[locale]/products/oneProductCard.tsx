@@ -68,6 +68,11 @@ const OneProductCard: React.FC<OneProductCardProps> = ({
               </h3>
             )}
             <ul className='mt-2 text-sm sm:text-base text-gray-700 space-y-1'>
+            {color && (
+                <li>
+                  <span className='font-semibold'>{t('color')}:</span> {color}
+                </li>
+              )}
               {size && (
                 <li>
                   <span className='font-semibold'>{t('size')}:</span> {size}

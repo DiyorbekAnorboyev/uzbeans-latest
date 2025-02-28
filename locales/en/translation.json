@@ -29,11 +29,12 @@
   "txt_footer": "Uzbeans agro company. All rights reserved.",
   "title": "Uzbeans agricultural company",
   "txt_pro":"CATALOGUE OF OUR PRODUCTS",
-  "txt_mung":"MUNG BEANS FROM UZBEKISTAN",
+  "txt_mung":"BEANS FROM UZBEKISTAN",
   "size":"Size",
   "purity":"Purity",
   "moisture":"Moisture",
   "package":"Package",
   "admixtures":"Admixtures",
-  "imperfect":"Imperfect"
+  "imperfect":"Imperfect",
+  "color":"Color"
 }

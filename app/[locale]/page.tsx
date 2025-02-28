@@ -19,6 +19,7 @@ import caYongoq from '../../public/slaydYongoq.jpg'
 import caNoxot from '../../public/slaydNoxot.jpg'
 import messageIcon from '../../public/messegeIcon.png'
 import callIcon from '../../public/call icon.png'
+import locationIcon from '../../public/locationIcon.png'
 import { useState } from 'react'
 
 import {
@@ -29,7 +30,6 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { IoMenu } from 'react-icons/io5'
 import { InstagramIcon, MessageCircle, YoutubeIcon } from 'lucide-react'
-import { CiLocationOn } from 'react-icons/ci'
 import { LiaTelegramPlane } from 'react-icons/lia'
 
 import { GoMoveToTop } from 'react-icons/go'
@@ -111,9 +111,8 @@ export default function Home () {
   const { t } = useTranslation()
 
   const openPdf = () => {
-    // Replace the URL below with the actual URL of your PDF file
     const pdfUrl = '/website.pdf'
-    window.open(pdfUrl, '_blank') // Opens the PDF in a new tab
+    window.open(pdfUrl, '_blank')
   }
 
   return (
@@ -147,7 +146,9 @@ export default function Home () {
                 alt='Mosh'
                 className='w-full h-full object-cover'
               />
-              <p className="absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-11 z-10">{t('txt_nohot')}</p>
+              <p className='absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-14 z-10'>
+                {t('txt_nohot')}
+              </p>
             </div>
             <div className='w-full relative h-[100vh]'>
               <Image
@@ -156,7 +157,9 @@ export default function Home () {
                 alt='Yongoq'
                 className='w-full h-full object-cover'
               />
-              <p className="absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-11 z-10">{t('txt_yongoq')}</p>
+              <p className='absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-14 z-10'>
+                {t('txt_yongoq')}
+              </p>
             </div>
             <div className='w-full relative h-[100vh]'>
               <Image
@@ -165,7 +168,10 @@ export default function Home () {
                 alt='Lovia'
                 className='w-full h-full object-cover'
               />
-              <p className="absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-11 z-10"> {t('txt_lovia')}</p>
+              <p className='absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-14 z-10'>
+                {' '}
+                {t('txt_lovia')}
+              </p>
             </div>
             <div className='w-full h-[100vh]'>
               <Image
@@ -174,7 +180,9 @@ export default function Home () {
                 alt='Noxot'
                 className='w-full h-full object-cover'
               />
-              <p className="absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-11 z-10">{t('txt_yong')} </p>
+              <p className='absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-14 z-10'>
+                {t('txt_yong')}{' '}
+              </p>
             </div>
           </Carousel>
 
@@ -363,7 +371,6 @@ export default function Home () {
             <div className='w-full sm:mt-10'>
               <Image
                 loading='lazy'
-                data-aos='fade-down'
                 className='w-full sm:absolute sm:-bottom-24 bg-cover h-1/2 h-25rem z-10'
                 src={traktorImg}
                 alt='Tractor'
@@ -376,7 +383,6 @@ export default function Home () {
             <div>
               <Image
                 loading='lazy'
-                data-aos='flip-up'
                 className='w-full'
                 src={beansImg}
                 alt='Beans'
@@ -400,7 +406,7 @@ export default function Home () {
           {/* Title */}
           <div className='pt-40'>
             <p
-              // data-aos='zoom-in'
+              // ='zoom-in'
               className='text-2xl sm:text-3xl md:text-5xl font-semibold sm:py-3 text-center w-full bg-green-900 text-white p-2'
             >
               {t('txt_products')}{' '}
@@ -413,7 +419,6 @@ export default function Home () {
             <div className='lg:col-span-3 bg-slate-400 relative shadow-lg overflow-hidden h-56 sm:h-64'>
               <Image
                 loading='lazy'
-                data-aos='fade-right'
                 className='w-full h-full object-cover'
                 src={mosh1}
                 alt='beans'
@@ -429,7 +434,6 @@ export default function Home () {
             <div className='bg-slate-600 lg:col-span-2 relative shadow-lg overflow-hidden h-56 sm:h-64'>
               <Image
                 loading='lazy'
-                data-aos='fade-left'
                 className='w-full h-full object-cover'
                 src={lovia}
                 alt='beans'
@@ -520,7 +524,7 @@ export default function Home () {
               </h3>
               <div className='text-lg md:text-xl'>
                 <div className='flex flex-col md:flex-row sm:mt-5 justify-between sm:items-end'>
-                  <p className='flex w-full justify-start gap-3 text-base md:text-xl'>
+                  <p className='flex w-full sm:w-1/3 sm:justify-between justify-start gap-3 text-base md:text-xl'>
                     +998(95)-089-99-44{' '}
                     <Image
                       loading='lazy'
@@ -528,22 +532,20 @@ export default function Home () {
                       src={callIcon}
                       alt='message'
                     />
-                    {/* <CiLocationOn
-                      size={27}
-                      className='hover:cursor-pointer'
-                    />{' '} */}
                   </p>
-                  <p className=' flex w-full gap-0 mt-3 md:mt-0 sm:justify-end text-base md:text-xl'>
+                  <p className=' flex w-full gap-2 mt-3 md:mt-0 sm:justify-end text-base md:text-xl'>
                     {t('loc_main')} <br />
-                    <CiLocationOn
-                      size={27}
-                      className='hover:cursor-pointer'
-                    />{' '}
+                    <Image
+                      loading='lazy'
+                      height={25}
+                      src={locationIcon}
+                      alt='locationIcon'
+                    />
                   </p>
                 </div>
 
                 <div className='flex flex-col md:flex-row justify-start sm:justify-between items-center'>
-                  <p className='flex w-full gap-3 text-base md:text-xl'>
+                  <p className='flex w-full sm:w-1/3 sm:justify-between gap-3 text-base md:text-xl'>
                     albois2000@mail.ru{' '}
                     <Image
                       loading='lazy'
@@ -561,10 +563,24 @@ export default function Home () {
                 {t('txt_sotvi')}
               </h4>
               <div className='flex justify-center md:justify-start py-2 sm:py-5 gap-6 items-center'>
-                <InstagramIcon size={31} className='hover:cursor-pointer' />{' '}
-                <LiaTelegramPlane size={31} className='hover:cursor-pointer' />{' '}
-                <MessageCircle size={31} className='hover:cursor-pointer' />
-                <YoutubeIcon className='hover:cursor-pointer' size={31} />
+                <a href='https://www.instagram.com/uzbeans/' target='_blank'>
+                  <InstagramIcon size={31} className='hover:cursor-pointer' />{' '}
+                </a>
+                <a href='https://t.me/Uzbeans' target='_blank'>
+                  <LiaTelegramPlane
+                    size={31}
+                    className='hover:cursor-pointer'
+                  />{' '}
+                </a>
+                <a
+                  href='https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=GTvVlcRzCMcrSVRCCgGjWnwtTwrtwDgqCDgVRdGpBgkKFwLvPnNTJLwcLrZggfjrwtFHqQvXPpNGV'
+                  target='_blank'
+                >
+                  <MessageCircle size={31} className='hover:cursor-pointer' />
+                </a>
+                <a href='https://www.youtube.com/' target='_blank'>
+                  <YoutubeIcon className='hover:cursor-pointer' size={31} />
+                </a>
                 <p className='text-xl md:text-3xl'>uzbeans</p>
               </div>
             </div>

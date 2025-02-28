@@ -60,11 +60,11 @@ body {
 
 .white_Bg_Products {
   background-image: url('../public/background-02.png');
-  height: 100%;
+  height: auto;
   background-position: center; 
   background-repeat: no-repeat; 
   background-size: cover;
-  padding-bottom: 80px;
+  padding-bottom: 60px;
 }
 
 .bg_products {
