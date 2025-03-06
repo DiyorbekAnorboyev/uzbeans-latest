@@ -1,64 +1,28 @@
 'use client'
 import Image from 'next/image'
 import React from 'react'
-// import logo from '../../../public/logoWhite.png' // Image import
-import logoBlack from '../../../public/logoLast.png'
+import logoBlack from '../../../public/logoLast.webp'
 
-import noxotSmall from '../../../public/moshPro.jpg'
-import mosh1 from '../../../public/mosh1Pro.jpg'
-import mosh2 from '../../../public/mosh2Pro.jpg'
-import mosh3 from '../../../public/mosh3Pro.jpg'
-import lovia1 from '../../../public/lovia1Pro.jpg'
+import noxotSmall from '../../../public/moshPro.webp'
+import mosh1 from '../../../public/mosh1Pro.webp'
+import mosh2 from '../../../public/mosh2Pro.webp'
+import mosh3 from '../../../public/mosh3Pro.webp'
+import lovia1 from '../../../public/lovia1Pro.webp'
 import lovia2 from '../../../public/lovia2Pro.jpg'
-import lovia3 from '../../../public/lovia3Pro.jpg'
+import lovia3 from '../../../public/lovia3Pro.webp'
 
-// import callIcon from '../../../public/call icon.png'
-
-// import { FaGlobe, FaInstagram, FaPhone, FaTelegram } from 'react-icons/fa'
+import instaIcon from '../../../public/green-insta.png'
+import tgIcon from '../../../public/green-tg.png'
+import messageIcon from '../../../public/green-sms.png'
+import background2 from '../../../public/background-02.webp'
 import OneProductCard from './oneProductCard'
 import { useTranslation } from 'react-i18next'
-// import {
-//   DropdownMenu,
-//   DropdownMenuContent,
-//   DropdownMenuLabel,
-//   DropdownMenuRadioGroup,
-//   DropdownMenuRadioItem,
-//   DropdownMenuSeparator,
-//   DropdownMenuTrigger
-// } from '@/components/ui/dropdown-menu'
-// import { Button } from '@/components/ui/button'
-// import { usePathname, useRouter } from 'next/navigation'
-import { InstagramIcon, MessageCircle, YoutubeIcon } from 'lucide-react'
-import { LiaTelegramPlane } from 'react-icons/lia'
 
 const ProductsPage = () => {
-  // const currentPathname = usePathname()
-  // const { i18n } = useTranslation()
-  // const currentLocale = i18n.language
-  // const router = useRouter()
-
-  // const handleLanguageChange = React.useCallback(
-  //   async (newLocale: string) => {
-  //     document.cookie = `NEXT_LOCALE=${newLocale};expires=${new Date(
-  //       Date.now() + 30 * 24 * 60 * 60 * 1000
-  //     ).toUTCString()};path=/`
-
-  //     const newPathname = currentPathname.replace(
-  //       `/${currentLocale}`,
-  //       `/${newLocale}`
-  //     )
-  //     console.log(i18n.language)
-
-  //     await i18n.changeLanguage(newLocale)
-  //     router.replace(newPathname)
-  //     router.refresh()
-  //   },
-  //   [currentLocale, currentPathname, router, i18n]
-  // )
 
   const data = [
     {
-      title: 'Uncolored sortex unpolished',
+      title: 'Green Mung Bean',
       img: noxotSmall,
       size: '+2.8 mm',
       purity: '97% - 99% Min',
@@ -66,7 +30,7 @@ const ProductsPage = () => {
       package: ' 25-50 kg PP bags according to buyers requirement'
     },
     {
-      title: 'Uncolored sortex unpolished',
+      title: 'Green Mung Bean',
       img: mosh1,
       size: '+3 mm',
       purity: '97% - 99% Min',
@@ -74,7 +38,7 @@ const ProductsPage = () => {
       package: '25-50 kg PP bags according to buyers requirement'
     },
     {
-      title: 'Uncolored sortex unpolished',
+      title: 'Green Mung Bean',
       img: mosh2,
       size: '+3.5 mm',
       purity: '97% - 99% Min',
@@ -82,7 +46,7 @@ const ProductsPage = () => {
       package: '25-50 kg PP bags according to buyers requirement'
     },
     {
-      title: 'Uncolored sortex unpolished',
+      title: 'Green Mung Bean',
       img: mosh3,
       size: '+4 mm',
       purity: '97% - 99% Min',
@@ -124,38 +88,23 @@ const ProductsPage = () => {
     }
   ]
 
-  console.log(data[0].img)
   const { t } = useTranslation()
 
   return (
-    <div className='px-4 top-16 sm:top-20 absolute sm:px-8 lg:px-20 py-16 flex flex-col h-full w-full justify-between white_Bg_Products'>
-      <div className='w-full flex items-center justify-center'>
+    <div className='px-4 sm:top-20 sm:relative sm:px-8 lg:px-20 py-16 flex flex-col h-full w-full justify-between white_Bg_Products'>
+      <Image
+        priority
+        src={background2}
+        alt='Background'
+        fill
+        style={{ objectFit: 'cover' }}
+        className='-z-10'
+      />
+      <div className='w-full mt-20 sm:mt-0 flex items-center justify-center'>
         <div className='text-green-600 text-3xl sm:text-5xl lg:text-6xl font-bold text-center leading-snug'>
           {t('txt_mung')}
         </div>
       </div>
-
-      {/* <div>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant='outline'>RU / EN</Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className='w-56'>
-            <DropdownMenuRadioItem
-              onClick={() => handleLanguageChange('ru')}
-              value='top'
-            >
-              RUS
-            </DropdownMenuRadioItem>
-            <DropdownMenuRadioItem
-              onClick={() => handleLanguageChange('en')}
-              value='bottom'
-            >
-              ENG
-            </DropdownMenuRadioItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div> */}
 
       {/* Product Cards */}
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-10'>
@@ -195,16 +144,38 @@ const ProductsPage = () => {
         <div className='w-full flex flex-col sm:flex-row sm:justify-end justify-between items-center  sm:w-3/4 space-y-4 sm:space-y-0 sm:pl-8'>
           <div className='flex justify-center md:justify-start py-2 sm:py-5 gap-6 items-center'>
             <a href='https://www.instagram.com/uzbeans/' target='_blank'>
-              <InstagramIcon className='hover:cursor-pointer' />{' '}
+              <Image
+                height={31}
+                width={31}
+                src={instaIcon}
+                alt='Instagram'
+                className='hover:cursor-pointer'
+              />
             </a>
-            <a href='https://t.me/Uzbeans' className='text-2xl md:text-3xl' target='_blank'>
-              <LiaTelegramPlane className='hover:cursor-pointer' />{' '}
+            <a
+              href='https://t.me/Uzbeans'
+              className='text-2xl md:text-3xl'
+              target='_blank'
+            >
+              <Image
+                height={31}
+                width={31}
+                src={tgIcon}
+                alt='Telegram'
+                className='hover:cursor-pointer'
+              />
             </a>
             <a
               href='https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=GTvVlcRzCMcrSVRCCgGjWnwtTwrtwDgqCDgVRdGpBgkKFwLvPnNTJLwcLrZggfjrwtFHqQvXPpNGV'
               target='_blank'
             >
-              <MessageCircle className='hover:cursor-pointer' />
+              <Image
+                height={31}
+                width={31}
+                src={messageIcon}
+                alt='Message'
+                className='hover:cursor-pointer'
+              />
             </a>
             <p className='text-xl md:text-3xl'>uzbeans</p>
           </div>

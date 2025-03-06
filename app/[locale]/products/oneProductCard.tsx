@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 
 interface OneProductCardProps {
   title?: string
-  img?: StaticImageData | string // Allow both imported images and URL strings
+  img?: StaticImageData | string
   size?: string
   color?: string
   purity?: string
@@ -33,13 +33,13 @@ const OneProductCard: React.FC<OneProductCardProps> = ({
     <div className='max-w-sm w-full rounded-lg overflow-hidden shadow-lg border border-gray-200'>
       {/* Product Image */}
       <div className='w-full h-48 relative'>
-        {/* Using next/image with dynamic src */}
         <Image
           className='w-full h-full object-cover'
-          src={img!} // Make sure img is not undefined
+          src={img!}
+          priority
           alt={title || 'Product Image'}
-          layout='fill' // Takes the full container space
-          objectFit='cover' // Cover the image inside the container
+          fill
+          style={{ objectFit: 'cover' }}
         />
       </div>
 
@@ -68,7 +68,7 @@ const OneProductCard: React.FC<OneProductCardProps> = ({
               </h3>
             )}
             <ul className='mt-2 text-sm sm:text-base text-gray-700 space-y-1'>
-            {color && (
+              {color && (
                 <li>
                   <span className='font-semibold'>{t('color')}:</span> {color}
                 </li>
@@ -97,12 +97,14 @@ const OneProductCard: React.FC<OneProductCardProps> = ({
               )}
               {imperfect && (
                 <li>
-                  <span className='font-semibold'>{t('imperfect')}:</span> {imperfect}
+                  <span className='font-semibold'>{t('imperfect')}:</span>{' '}
+                  {imperfect}
                 </li>
               )}
               {packageCard && (
                 <li>
-                  <span className='font-semibold'>{t('package')}:</span> {packageCard}
+                  <span className='font-semibold'>{t('package')}:</span>{' '}
+                  {packageCard}
                 </li>
               )}
             </ul>

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
-import 'aos/dist/aos.css'
+// import 'aos/dist/aos.css'
 import TranslationProvider from '@/providers/translate.provider'
 import initTranslations from '@/i18n'
 import i18nConfig from '@/next-i18next.config'
@@ -43,19 +43,20 @@ export default async function RootLayout ({
   const { resources } = await initTranslations(locale, i18nNamespaces)
 
   return (
-    <html lang={locale}>
+    <html >
       <head>
-        <link rel='preconnect' href='https://fonts.googleapis.com' />
-        <link rel='preconnect' href='https://fonts.gstatic.com' />
-        <link
-          href='https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Monomakh&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Onest:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap'
-          rel='stylesheet'
-        />
-        <link rel='icon' href='/logo.png' />
+      {/* <link rel="preconnect" href="https://fonts.googleapis.com"  />
+    <link rel="preconnect" href="https://fonts.gstatic.com"  /> */}
+    {/* <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:wght@100..900&family=Onest:wght@100..900&display=swap"
+      rel="stylesheet"
+    /> */}
+
+    {/* <link rel="stylesheet" href="/_next/static/css/app/layout.css" /> */}
+    <link rel="icon" href="/logo.png" />
       </head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <TranslationProvider
           locale={locale}

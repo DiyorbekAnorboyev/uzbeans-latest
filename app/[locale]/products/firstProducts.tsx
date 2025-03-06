@@ -1,10 +1,8 @@
-
-
 'use client'
 import Image from 'next/image'
 import React from 'react'
 
-import LogoNav from '../../../public/logoWhite.png'
+import LogoNav from '../../../public/logoWhite.webp'
 import Link from 'next/link'
 
 import {
@@ -13,14 +11,11 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
-// import { BsTelephone } from 'react-icons/bs'
-// import { MessageCircle } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { IoMenu } from 'react-icons/io5'
-// import { AiOutlinePhone } from 'react-icons/ai'
 import { usePathname, useRouter } from 'next/navigation'
 import messageIcon from '../../../public/messegeIcon.png'
-import callIcon from '../../../public/call icon.png'
+import callIcon from '../../../public/call icon.webp'
 
 const FirstProductPage = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -57,7 +52,7 @@ const FirstProductPage = () => {
   const { t } = useTranslation()
 
   return (
-    <div className='flex fixed z-10 w-full items-center py-7 justify-between px-6 sm:px-12 lg:px-24 bg-green-600 text-white'>
+    <div className='flex fixed z-10 w-full items-center py-7 justify-between px-6 lg:px-24 bg-green-600 text-white'>
       <div className='flex-shrink-0'>
         <Link className=' hover:cursor-pointer' href='/'>
           <Image
