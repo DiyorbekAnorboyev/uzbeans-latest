@@ -15,6 +15,9 @@ import background2 from '../../public/background-02.webp'
 import background3 from '../../public/background-03.webp'
 import instaIcon from '../../public/insta-oq.png'
 import tgIcon from '../../public/tg-oq.png'
+import whatsappIcon from "../../public/watsap-oq.png"
+import weChatIcon from "../../public/wechat-oq.png"
+
 
 import * as React from 'react'
 import '../globals.css'
@@ -39,6 +42,8 @@ import { IoMenu } from 'react-icons/io5'
 import { GoMoveToTop } from 'react-icons/go'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
+// import { Carousel, Typography } from '@material-tailwind/react'
+
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
 import { usePathname, useRouter } from 'next/navigation'
@@ -192,6 +197,72 @@ export default function Home () {
               </p>
             </div>
           </Carousel>
+
+          {/* <Carousel
+            className='absolute top-0 left-0 w-full h-full'
+            id='carusel'
+          >
+            <div className='w-full relative h-[100vh]'>
+              <Image
+                loading='lazy'
+                className='w-full h-full object-cover'
+                src={caMosh}
+                alt='Mosh'
+              />
+              <Typography
+                variant='h1'
+                color='white'
+                className='absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-14 z-10'
+              >
+                {t('txt_nohot')}
+              </Typography>
+            </div>
+            <div className='w-full relative h-[100vh]'>
+              <Image
+                loading='lazy'
+                className='w-full h-full object-cover'
+                src={caYongoq}
+                alt='Yongoq'
+              />
+              <Typography
+                variant='h1'
+                color='white'
+                className='absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-14 z-10'
+              >
+                {t('txt_yongoq')}
+              </Typography>
+            </div>
+            <div className='w-full relative h-[100vh]'>
+              <Image
+                loading='lazy'
+                className='w-full h-full object-cover'
+                src={caLovia}
+                alt='Lovia'
+              />
+              <Typography
+                variant='h1'
+                color='white'
+                className='absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-14 z-10'
+              >
+                {t('txt_lovia')}
+              </Typography>
+            </div>
+            <div className='w-full h-[100vh]'>
+              <Image
+                loading='lazy'
+                className='w-full h-full object-cover'
+                src={caNoxot}
+                alt='Noxot'
+              />
+              <Typography
+                variant='h1'
+                color='white'
+                className='absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-14 z-10'
+              >
+                {t('txt_yong')}
+              </Typography>
+            </div>
+          </Carousel> */}
 
           {/* Foreground Content */}
           <div className='relative flex flex-col justify-between h-screen pb-10 z-10'>
@@ -531,6 +602,7 @@ export default function Home () {
             <div className='mt-10 '>
               <div>
                 <iframe
+                  title='map'
                   src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.599218274142!2d71.23881005105166!3d40.99895597907338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bca24dcda79d3b%3A0x1cb1032f9601216!2z0KHRgtGA0LDRgNC40LnQstC10YHRgtCy0L7QvNC40YbQsCDQnNCw0LnRgdC60LDRjywg0JzQsNC50YHQutCw0Y8gMjEg0JAsINCc0LDRgdC60LDRjywg0KLQtdC70YzQvdC40LrQsA!5e0!3m2!1sru!2s!4v1691752214000!5m2!1sru!2s'
                   width='100%'
                   height='500'
@@ -565,7 +637,7 @@ export default function Home () {
               </h3>
               <div className='text-lg md:text-xl'>
                 <div className='flex flex-col md:flex-row sm:mt-5 justify-between sm:items-end'>
-                  <p className='flex w-full sm:w-1/3 sm:justify-between justify-start gap-3 text-base md:text-xl'>
+                  <p className='flex w-full sm:w-64 sm:justify-between justify-start gap-3 text-base md:text-xl items-center'>
                     +998(95)-089-99-44{' '}
                     <Image
                       priority
@@ -575,7 +647,7 @@ export default function Home () {
                       alt='message'
                     />
                   </p>
-                  <p className=' flex w-full gap-2 mt-3 md:mt-0 sm:justify-end text-base md:text-xl'>
+                  <p className=' flex w-full gap-2 mt-3 md:mt-0 sm:justify-end text-base md:text-xl items-center'>
                     {t('loc_main')} <br />
                     <Image
                       priority
@@ -588,7 +660,7 @@ export default function Home () {
                 </div>
 
                 <div className='flex flex-col md:flex-row justify-start sm:justify-between items-center'>
-                  <p className='flex w-full sm:w-1/3 sm:justify-between gap-3 text-base md:text-xl'>
+                  <p className='flex w-full sm:w-64 sm:justify-between gap-3 text-base md:text-xl items-center'>
                     albois2000@mail.ru{' '}
                     <Image
                       priority
@@ -634,6 +706,24 @@ export default function Home () {
                     width={31}
                     src={messageIcon}
                     alt='Telegram'
+                    className='hover:cursor-pointer'
+                  />
+                </a>
+                <a href='https://wa.me/998950899944' target='_blank'>
+                  <Image
+                    height={31}
+                    width={31}
+                    src={whatsappIcon}
+                    alt='Whatsapp'
+                    className='hover:cursor-pointer'
+                  />
+                </a>
+                <a href='https://t.me/Uzbeans' target='_blank'>
+                  <Image
+                    height={31}
+                    width={31}
+                    src={weChatIcon}
+                    alt='WeChat'
                     className='hover:cursor-pointer'
                   />
                 </a>

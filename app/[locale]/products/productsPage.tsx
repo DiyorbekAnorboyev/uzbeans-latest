@@ -13,13 +13,14 @@ import lovia3 from '../../../public/lovia3Pro.webp'
 
 import instaIcon from '../../../public/green-insta.png'
 import tgIcon from '../../../public/green-tg.png'
+import whatsappIcon from "../../../public/greenWatsap.png"
+import weChatIcon from "../../../public/green-wechat.png"
 import messageIcon from '../../../public/green-sms.png'
 import background2 from '../../../public/background-02.webp'
 import OneProductCard from './oneProductCard'
 import { useTranslation } from 'react-i18next'
 
 const ProductsPage = () => {
-
   const data = [
     {
       title: 'Green Mung Bean',
@@ -177,7 +178,25 @@ const ProductsPage = () => {
                 className='hover:cursor-pointer'
               />
             </a>
-            <p className='text-xl md:text-3xl'>uzbeans</p>
+            <a href='https://wa.me/998950899944' target='_blank'>
+              <Image
+                height={31}
+                width={31}
+                src={whatsappIcon}
+                alt='Whatsapp'
+                className='hover:cursor-pointer'
+              />
+            </a>
+            <a href='https://t.me/Uzbeans' target='_blank'>
+              <Image
+                height={31}
+                width={31}
+                src={weChatIcon}
+                alt='WeChat'
+                className='hover:cursor-pointer'
+              />
+            </a>
+            <p className='text-xl md:text-3xl beans-green'>uzbeans</p>
           </div>
         </div>
       </div>

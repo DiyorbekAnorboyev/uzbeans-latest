@@ -43,7 +43,7 @@ export default async function RootLayout ({
   const { resources } = await initTranslations(locale, i18nNamespaces)
 
   return (
-    <html >
+    <html lang='' >
       <head>
       {/* <link rel="preconnect" href="https://fonts.googleapis.com"  />
     <link rel="preconnect" href="https://fonts.gstatic.com"  /> */}
