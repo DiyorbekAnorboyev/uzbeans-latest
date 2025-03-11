@@ -453,15 +453,15 @@ export default function Home () {
           <div className='w-full sm:relative'>
             <p className='text-2xl sm:text-4xl md:text-5xl'>{t('about_cm')}</p>
             <p className='mt-6 sm:mt-10 text-base sm:text-xl md:text-xl'>
-              <span className='font-bold'>{t('welcome_cm')}</span> —{' '}
+              {t('welcome_cm')} —{' '}
               {t('txt_moldu')}
               <br />
-              <span className='font-bold'>{t('txt_upakov')}</span>
+              {t('txt_upakov')}{' '}
               {t('txt_cozdat')}
             </p>
             <div className='mt-6 sm:mt-10 text-base sm:text-xl md:text-xl'>
               <p>
-                <span className='font-bold'>{t('txt_uspexa')}</span> —{' '}
+                {t('txt_uspexa')} —{' '}
                 {t('txt_sochet')}
               </p>
             </div>
@@ -492,7 +492,7 @@ export default function Home () {
                 {t('txt_gordim')} <br /> {t('txt_strem')}{' '}
               </p>
             </div>
-            <div className='mt-6 sm:mt-10 text-base sm:text-xl md:text-xl font-bold '>
+            <div className='mt-6 sm:mt-10 text-base sm:text-xl md:text-xl  '>
               {t('txt_uzbeans')}{' '}
             </div>
           </div>
