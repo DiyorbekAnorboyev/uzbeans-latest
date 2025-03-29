@@ -2,19 +2,19 @@
 import Image from 'next/image'
 import LogoNav from '../../public/logoWhite.webp'
 import LogoNav1 from '../../public/logoLast.webp'
-import traktorImg from '../../public/traktor.jpg' //
+import traktorImg from '../../public/traktor.webp' //
 import beansImg from '../../public/new-beans.webp'
-import downloadIcon from '../../public/downloadIcon.png' //
+import downloadIcon from '../../public/downloadIcon.webp' //
 import noxot from '../../public/noxot.webp'
-import yangoq from '../../public/yangoq.jpg' //
-import mosh1 from '../../public/mosh1.jpg'
+import yangoq from '../../public/yangoq.webp' //
+import mosh1 from '../../public/mosh1.webp'
 import lovia from '../../public/lovia.webp'
 
 import background1 from '../../public/background-01.webp'
 import background2 from '../../public/background-02.webp'
 import background3 from '../../public/background-03.webp'
-import instaIcon from '../../public/insta-oq.png'
-import tgIcon from '../../public/tg-oq.png'
+import instaIcon from '../../public/insta-oq.webp'
+import tgIcon from '../../public/tg-oq.webp'
 import whatsappIcon from '../../public/watsap-oq.png'
 import weChatIcon from '../../public/wechat-oq.png'
 
