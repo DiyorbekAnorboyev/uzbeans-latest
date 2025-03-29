@@ -15,17 +15,16 @@ import background2 from '../../public/background-02.webp'
 import background3 from '../../public/background-03.webp'
 import instaIcon from '../../public/insta-oq.png'
 import tgIcon from '../../public/tg-oq.png'
-import whatsappIcon from "../../public/watsap-oq.png"
-import weChatIcon from "../../public/wechat-oq.png"
-
+import whatsappIcon from '../../public/watsap-oq.png'
+import weChatIcon from '../../public/wechat-oq.png'
 
 import * as React from 'react'
 import '../globals.css'
 
-import caMosh from '../../public/mosh.jpg' //
-import caLovia from '../../public/slaydLovia.jpg'
-import caYongoq from '../../public/slaydYongoq.jpg'
-import caNoxot from '../../public/slaydNoxot.jpg'
+import caMosh from '../../public/mosh.webp' //
+import caLovia from '../../public/slaydLovia.webp'
+import caYongoq from '../../public/slaydYongoq.webp'
+import caNoxot from '../../public/slaydNoxot.webp'
 import messageIcon from '../../public/messegeIcon.png'
 import callIcon from '../../public/call icon.webp'
 import locationIcon from '../../public/locationIcon.png'
@@ -47,6 +46,9 @@ import { Carousel } from 'react-responsive-carousel'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
 import { usePathname, useRouter } from 'next/navigation'
+import Carusel from '@/components/ui/carusel'
+// import Carusel from '@/components/ui/carusel'
+// import dynamic from 'next/dynamic'
 
 export default function Home () {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -57,23 +59,18 @@ export default function Home () {
   const router = useRouter()
   const currentPathname = usePathname()
 
-  const handleLanguageChange = React.useCallback(
-    async (newLocale: string) => {
-      document.cookie = `NEXT_LOCALE=${newLocale};expires=${new Date(
-        Date.now() + 30 * 24 * 60 * 60 * 1000
-      ).toUTCString()};path=/`
-
-      const newPathname = currentPathname.replace(
-        `/${currentLocale}`,
-        `/${newLocale}`
-      )
-
-      await i18n.changeLanguage(newLocale)
-      router.replace(newPathname)
-      router.refresh()
-    },
-    [currentLocale, currentPathname, router, i18n]
-  )
+  const handleLanguageChange = React.useCallback((newLocale: string) => {
+    if (newLocale === currentLocale) return
+  
+    document.cookie = `NEXT_LOCALE=${newLocale};expires=${new Date(
+      Date.now() + 30 * 24 * 60 * 60 * 1000
+    ).toUTCString()};path=/`
+  
+    const newPathname = currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
+  
+    i18n.changeLanguage(newLocale) // Buni `await` qilish shart emas
+    router.replace(newPathname) // `refresh()` chaqirmasdan o‘zi yangilanadi
+  }, [currentLocale, currentPathname, router, i18n])
 
   const [displaySize, setDisplaySize] = React.useState(0)
 
@@ -138,7 +135,14 @@ export default function Home () {
       <div className='w-full'>
         <div className='relative w-full h-[100vh] overflow-hidden'>
           {/* Carousel Background */}
-          <Carousel
+
+          {/* <Carusel image={caMosh} text={'txt_nohot'} /> */}
+
+          {/* 
+          
+          
+          
+           */}<Carousel
             // autoPlay={false}
             autoPlay
             infiniteLoop
@@ -149,8 +153,7 @@ export default function Home () {
             <div className='w-full relative h-[100vh]'>
               <Image
                 loading='lazy'
-                className='w-full h-full object-cover'
-                
+                className='h-full object-cover'
                 src={caMosh}
                 alt='Mosh'
               />
@@ -161,8 +164,7 @@ export default function Home () {
             <div className='w-full relative h-[100vh]'>
               <Image
                 loading='lazy'
-                className='w-full h-full object-cover'
-                
+                className='h-full object-cover'
                 src={caYongoq}
                 alt='Yongoq'
               />
@@ -173,8 +175,7 @@ export default function Home () {
             <div className='w-full relative h-[100vh]'>
               <Image
                 loading='lazy'
-                className='w-full h-full object-cover'
-                
+                className='h-full object-cover'
                 src={caLovia}
                 alt='Lovia'
               />
@@ -186,8 +187,7 @@ export default function Home () {
             <div className='w-full h-[100vh]'>
               <Image
                 loading='lazy'
-                className='w-full h-full object-cover'
-                
+                className='h-full object-cover'
                 src={caNoxot}
                 alt='Noxot'
               />
@@ -197,72 +197,7 @@ export default function Home () {
               </p>
             </div>
           </Carousel>
-
-          {/* <Carousel
-            className='absolute top-0 left-0 w-full h-full'
-            id='carusel'
-          >
-            <div className='w-full relative h-[100vh]'>
-              <Image
-                loading='lazy'
-                className='w-full h-full object-cover'
-                src={caMosh}
-                alt='Mosh'
-              />
-              <Typography
-                variant='h1'
-                color='white'
-                className='absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-14 z-10'
-              >
-                {t('txt_nohot')}
-              </Typography>
-            </div>
-            <div className='w-full relative h-[100vh]'>
-              <Image
-                loading='lazy'
-                className='w-full h-full object-cover'
-                src={caYongoq}
-                alt='Yongoq'
-              />
-              <Typography
-                variant='h1'
-                color='white'
-                className='absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-14 z-10'
-              >
-                {t('txt_yongoq')}
-              </Typography>
-            </div>
-            <div className='w-full relative h-[100vh]'>
-              <Image
-                loading='lazy'
-                className='w-full h-full object-cover'
-                src={caLovia}
-                alt='Lovia'
-              />
-              <Typography
-                variant='h1'
-                color='white'
-                className='absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-14 z-10'
-              >
-                {t('txt_lovia')}
-              </Typography>
-            </div>
-            <div className='w-full h-[100vh]'>
-              <Image
-                loading='lazy'
-                className='w-full h-full object-cover'
-                src={caNoxot}
-                alt='Noxot'
-              />
-              <Typography
-                variant='h1'
-                color='white'
-                className='absolute text-2xl f-medium-24 sm:text-5xl text-white py-10 sm:text-start sm:p-9 sm:left-14 bottom-40 w-full sm:bottom-14 z-10'
-              >
-                {t('txt_yong')}
-              </Typography>
-            </div>
-          </Carousel> */}
+          
 
           {/* Foreground Content */}
           <div className='relative flex flex-col justify-between h-screen pb-10 z-10'>
@@ -432,14 +367,14 @@ export default function Home () {
       </div>
       {/* About */}
 
-      <div className='flex flex-col px-6 md:px-20 about-bg relative w-full h-full bg-top'>
+      <div className='flex flex-col px-6 md:px-20 relative w-full h-full '>
         <Image
           priority
           src={background1}
           alt='Background'
           fill
           style={{ objectFit: 'cover' }}
-          className='-z-10 bg-top'
+          className='-z-10 '
         />
 
         {/* Title Section */}
@@ -452,17 +387,14 @@ export default function Home () {
           {/* Left Column */}
           <div className='w-full sm:relative'>
             <p className='text-2xl sm:text-4xl md:text-5xl'>{t('about_cm')}</p>
-            <p className='mt-6 sm:mt-10 text-base sm:text-xl md:text-xl'>
-              {t('welcome_cm')} —{' '}
-              {t('txt_moldu')}
+            <p className='mt-6 sm:mt-10 text-base sm:text-xl'>
+              {t('welcome_cm')} — {t('txt_moldu')}
               <br />
-              {t('txt_upakov')}{' '}
-              {t('txt_cozdat')}
+              {t('txt_upakov')} {t('txt_cozdat')}
             </p>
-            <div className='mt-6 sm:mt-10 text-base sm:text-xl md:text-xl'>
+            <div className='mt-6 sm:mt-10 text-base sm:text-xl'>
               <p>
-                {t('txt_uspexa')} —{' '}
-                {t('txt_sochet')}
+                {t('txt_uspexa')} — {t('txt_sochet')}
               </p>
             </div>
             <div className='w-full mt-10 sm:mt-0'>
@@ -488,11 +420,11 @@ export default function Home () {
               />
             </div>
             <div>
-              <p className='mt-10 sm:mt-20 text-base sm:text-xl md:text-xl'>
+              <p className='mt-10 sm:mt-20 text-base sm:text-xl'>
                 {t('txt_gordim')} <br /> {t('txt_strem')}{' '}
               </p>
             </div>
-            <div className='mt-6 sm:mt-10 text-base sm:text-xl md:text-xl  '>
+            <div className='mt-6 sm:mt-10 text-base sm:text-xl  '>
               {t('txt_uzbeans')}{' '}
             </div>
           </div>
@@ -500,14 +432,14 @@ export default function Home () {
       </div>
 
       {/* Products */}
-      <div className=' sm:pb-80 relative bg-top pb-96'>
+      <div className=' sm:pb-80 relative  pb-96'>
         <Image
           priority
           src={background2}
           alt='Background'
           fill
           style={{ objectFit: 'cover' }}
-          className='-z-10 bg-top'
+          className='-z-10 '
         />
         <div className='relative min-h-screen'>
           {/* Title */}
@@ -731,7 +663,7 @@ export default function Home () {
               </div>
             </div>
 
-            <div className='flex justify-between items-center px-8 sm:py-10 md:px-20 bg-white py-4'>
+            <div className='flex justify-between items-center px-8 md:px-20 bg-white py-4'>
               <div className='w-full sm:w-auto '>
                 <Image
                   loading='lazy'
@@ -741,7 +673,7 @@ export default function Home () {
                   alt='logo'
                 />
               </div>
-              <div className='text-sm sm:w-auto md:text-lg text-green-700 text-right md:text-right'>
+              <div className='text-sm sm:w-auto md:text-lg text-green-700 text-right'>
                 {t('txt_footer')}.
               </div>
             </div>

@@ -27,18 +27,13 @@ body {
   font-family: "Onest", serif;
 }
 
-.main-bg, .about-bg, .products_bg, .bg-green-50-50, .white_Bg_Products, .bg_products {
+.about-bg, .bg-green-50-50, .white_Bg_Products, .bg_products {
   /* background-position: center; */
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.main-bg {
-  background-image: url('../public/mosh.jpg');
-  height: 100vh;
-}
-
-.about-bg, .products_bg {
+.about-bg {
   background-image: url('../public/background-01.webp');
   height: 100%;
   background-position:bottom
@@ -91,26 +86,12 @@ iframe {
   height: 57%;
 }
 
-@media only screen and (max-width: 640px) {
-  .h-25rem {
-    height: 420px;
-  }
-}
-
 .f-medium-24 {
   font-weight: 500;
 }
 
 .f-medium-27 {
   font-weight: 400;
-}
-
-.px-100 {
-  padding: 0px 100px;
-}
-
-.mtt-60 {
-  margin-top: 60px;
 }
 
 .h-22 {
@@ -120,10 +101,6 @@ iframe {
 /* .p-bottom-45{
   padding-bottom: -35%;
 } */
-
-#carusel button{
-display: none;
-}
 
 .beans-green{
   color: #094725;

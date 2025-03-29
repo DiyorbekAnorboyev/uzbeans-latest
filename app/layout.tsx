@@ -6,16 +6,16 @@ import TranslationProvider from '@/providers/translate.provider'
 import initTranslations from '@/i18n'
 import i18nConfig from '@/next-i18next.config'
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900'
-})
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900'
-})
+// const geistSans = localFont({
+//   src: './fonts/GeistVF.woff',
+//   variable: '--font-geist-sans',
+//   weight: '100 900'
+// })
+// const geistMono = localFont({
+//   src: './fonts/GeistMonoVF.woff',
+//   variable: '--font-geist-mono',
+//   weight: '100 900'
+// })
 
 export const metadata: Metadata = {
   title: 'Uz Beans',
@@ -43,14 +43,14 @@ export default async function RootLayout ({
   const { resources } = await initTranslations(locale, i18nNamespaces)
 
   return (
-    <html lang='' >
+    <html lang='en' >
       <head>
-      {/* <link rel="preconnect" href="https://fonts.googleapis.com"  />
-    <link rel="preconnect" href="https://fonts.gstatic.com"  /> */}
-    {/* <link
+      <link rel="preconnect" href="https://fonts.googleapis.com"  />
+    <link rel="preconnect" href="https://fonts.gstatic.com"  />
+    <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:wght@100..900&family=Onest:wght@100..900&display=swap"
       rel="stylesheet"
-    /> */}
+    />
 
     {/* <link rel="stylesheet" href="/_next/static/css/app/layout.css" /> */}
     <link rel="icon" href="/logo.png" />
