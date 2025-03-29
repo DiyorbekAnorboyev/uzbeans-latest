@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Onest';
+  font-family: 'Onest', sans-serif;
   src: url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Onest:wght@100..900&display=swap');
   font-display: swap;
 }
@@ -24,7 +24,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Onest", serif;
+  font-family: "Onest", sans-serif;
 }
 
 .about-bg, .bg-green-50-50, .white_Bg_Products, .bg_products {
