@@ -569,7 +569,7 @@ export default function Home () {
               </h3>
               <div className='text-lg md:text-xl'>
                 <div className='flex flex-col md:flex-row sm:mt-5 justify-between sm:items-end'>
-                  <p className='flex w-full sm:w-64 sm:justify-between justify-start gap-3 text-base md:text-xl items-center'>
+                  <p className='flex w-full sm:w-80 sm:justify-between justify-start gap-3 text-base md:text-xl items-center'>
                     +998(95)-089-99-44{' '}
                     <Image
                       priority
@@ -592,7 +592,7 @@ export default function Home () {
                 </div>
 
                 <div className='flex flex-col md:flex-row justify-start sm:justify-between items-center'>
-                  <p className='flex w-full sm:w-64 sm:justify-between gap-3 text-base md:text-xl items-center'>
+                  <p className='flex w-full sm:w-80 sm:justify-between gap-3 text-base md:text-xl items-center'>
                     albois2000@mail.ru{' '}
                     <Image
                       priority
